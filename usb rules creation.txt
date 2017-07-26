@@ -1,0 +1,15 @@
+adding usb rules:
+
+write the following command in shell:
+$ udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)
+
+it will show all connected devices to ttyUSB0
+Choose some attributes from the list and copy them to a file with .rules prefix, e.g. name.rules.
+example of such file content:
+
+SUBSYSTEMS=="usb", ATTRS{manufacturer}=="FTDI", ATTRS{serial}=="AD02CU2O", SYMLINK+="Pixhawk", MODE="0666"
+SUBSYSTEMS=="usb", ATTRS{manufacturer}=="FTDI", ATTRS{serial}=="A904SAK0", SYMLINK+="RFD900", MODE="0666"
+
+then copy the rules file to the right location in ubuntu:
+
+$ sudo cp ~/path/to/rules/name.rules /etc/udev/rules.d/name.rules 
