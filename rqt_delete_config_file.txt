@@ -1,0 +1,9 @@
+if rqt not showing some plugin e.g. topic mointor plugin, 
+then you need to check this plugin is installed, and after installation delete rqt config file. 
+the file is located at:
+
+~/.config/ros.org/rqt_gui.ini
+
+run:
+
+$ rm ~/.config/ros.org/rqt_gui.ini
